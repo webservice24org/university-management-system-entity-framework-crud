@@ -22,6 +22,58 @@
   <li>SQL Server: As the database solution to store and manage application data.</li>
 </ul>
 
+<h2>Master-Detail CRUD application using Entity Framework Code First for managing Courses, Departments, Instructors, and Students with image support.</h2>
+<h3>Created Master-Detail CRUD application using Code First Approach</h3>
+
+<ul>
+  <li>
+    <strong>Initial Setup:</strong>
+    <ul>
+      <li>Open Microsoft SQL Server Management Studio.</li>
+      <li>Copy the server name.</li>
+      <li>Navigate to the root folder of the IdbUniversity application.</li>
+      <li>Open <code>Web.config</code>.</li>
+      <li>Update the data source with your server name (other settings remain unchanged).</li>
+    </ul>
+  </li>
+  
+  <li>
+    <strong>Database Setup:</strong>
+    <ul>
+      <li>Open Visual Studio.</li>
+      <li>Navigate to <code>Tools</code> -> <code>NuGet Package Manager</code> -> <code>Package Manager Console</code>.</li>
+      <li>Run the command:
+        <pre><code>update-database</code></pre>
+      </li>
+      <li>The database will be created, and data will be seeded.</li>
+      <li>If <code>update-database</code> does not work, delete the <code>Migrations</code> folder and run the following commands:
+        <pre><code>Enable-Migrations
+Add-Migration initIsdbUniversityData
+Update-Database</code></pre>
+      </li>
+      <li>If issues persist, ensure the database catalog name in <code>Web.config</code> is correct.</li>
+      <li><strong>Note:</strong> The <code>update-database</code> command should work fine Insha Allah.</li>
+    </ul>
+  </li>
+
+  <li>
+    <strong>Run the Application:</strong>
+    <ul>
+      <li>Open <code>HomeController</code> and run the project.</li>
+    </ul>
+  </li>
+
+  <li>
+    <strong>Features:</strong>
+    <ul>
+      <li>Search functionality works by <code>LastName</code> and <code>FirstMidName</code>.</li>
+      <li>Data/Row sorting works by <code>LastName</code>, <code>FirstName</code>, and <code>Email</code>.</li>
+      <li>Pagination is implemented with 3 rows per table.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>This setup and features ensure a smooth and user-friendly experience for managing university-related data.</p>
 
 
 
