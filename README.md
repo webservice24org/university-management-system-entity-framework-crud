@@ -73,9 +73,10 @@ Update-Database</code></pre>
       </li>
       <li>If issues persist, ensure the database catalog name in <code>Web.config</code> is correct.</li>
       <li><strong>Note:</strong> The <code>update-database</code> command should work fine Insha Allah.</li>
+      <li><strong>***Note:</strong> After updateing database and seed, open sql server management, right click on table CourseInstructor table in edit mode the insert CourseID 1254 and InstructorID 1</li>
     </ul>
   </li>
-
+  
   <li>
     <strong>Run the Application:</strong>
     <ul>
