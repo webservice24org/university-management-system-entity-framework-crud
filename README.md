@@ -76,7 +76,8 @@ Update-Database</code></pre>
       <li><strong>***Note:</strong> After updateing database and seed, open sql server management, right click on table CourseInstructor table in edit mode the insert CourseID 1254 and InstructorID 1</li>
     </ul>
   </li>
-  
+
+  <li><strong>Rebuild the project</strong></li>
   <li>
     <strong>Run the Application:</strong>
     <ul>
@@ -95,3 +96,7 @@ Update-Database</code></pre>
 </ul>
 
 <p>This setup and features ensure a smooth and user-friendly experience for managing university-related data.</p>
+
+<h2>Request: </h2>
+<p>If you face any problem you can mail me to : <strong>webservice24.org@gmail.com</strong></p>
+<h2>To hire me as freelancer feel free to contact me</h2>
