@@ -22,6 +22,9 @@
   <li>SQL Server: As the database solution to store and manage application data.</li>
 </ul>
 
+<h2>System overview in Image</h2>
+
+
 <h2>Master-Detail CRUD application using Entity Framework Code First for managing Courses, Departments, Instructors, and Students with image support.</h2>
 <h3>Created Master-Detail CRUD application using Code First Approach</h3>
 <h3>How to use this application</h3>
