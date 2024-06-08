@@ -24,6 +24,7 @@
 
 <h2>Master-Detail CRUD application using Entity Framework Code First for managing Courses, Departments, Instructors, and Students with image support.</h2>
 <h3>Created Master-Detail CRUD application using Code First Approach</h3>
+<h3>How to use this application</h3>
 
 <ul>
   <li>
