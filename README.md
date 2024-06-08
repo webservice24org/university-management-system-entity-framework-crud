@@ -26,19 +26,23 @@
 <p>Below are some screenshots of the system:</p>
 <ul style="list-style:none;">
   <li>
-    <img src="screenshots/course_management.png" alt="Course Management Screenshot" style="width:100%; max-width:600px;">
+    <img src="screenshots/homepage.png" alt="Course Management Screenshot" style="width:100%; max-width:600px;">
+    <p>Home Page</p>
+  </li>
+  <li>
+    <img src="screenshots/courses.png" alt="Course Management Screenshot" style="width:100%; max-width:600px;">
     <p>Course Management</p>
   </li>
   <li>
-    <img src="screenshots/department_management.png" alt="Department Management Screenshot" style="width:100%; max-width:600px;">
+    <img src="screenshots/departments.png" alt="Department Management Screenshot" style="width:100%; max-width:600px;">
     <p>Department Management</p>
   </li>
   <li>
-    <img src="screenshots/instructor_management.png" alt="Instructor Management Screenshot" style="width:100%; max-width:600px;">
+    <img src="screenshots/instructors.png" alt="Instructor Management Screenshot" style="width:100%; max-width:600px;">
     <p>Instructor Management</p>
   </li>
   <li>
-    <img src="screenshots/student_management.png" alt="Student Management Screenshot" style="width:100%; max-width:600px;">
+    <img src="screenshots/students.png" alt="Student Management Screenshot" style="width:100%; max-width:600px;">
     <p>Student Management</p>
   </li>
 </ul>
