@@ -1,0 +1,48 @@
+﻿@model IdbUniversity.Models.Department
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="text-center">Are you sure you want to delete <span class="text-danger"> @Html.DisplayFor(model => model.DepartmentName)</span> Department ?</h4>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.DepartmentName)</th>
+                            <th>@Html.DisplayNameFor(model => model.Budget)</th>
+                            <th>@Html.DisplayNameFor(model => model.StartDate)</th>
+                            <th>@Html.DisplayNameFor(model => model.Administrator.FullName)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> @Html.DisplayFor(model => model.DepartmentName)</td>
+                            <td> @Html.DisplayFor(model => model.Budget)</td>
+                            <td> @Html.DisplayFor(model => model.StartDate)</td>
+                            <td> @Html.DisplayFor(model => model.Administrator.FullName)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions no-color">
+                        @Html.ActionLink("Back to List", "Index", null, new {@class="btn btn-lg btn-primary"})
+                        <input type="submit" value="Yes Delete" class="btn btn-lg btn-danger" /> 
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

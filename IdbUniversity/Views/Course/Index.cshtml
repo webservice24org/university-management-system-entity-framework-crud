@@ -1,0 +1,50 @@
+﻿@model IEnumerable<IdbUniversity.Models.Course>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="float-start">Course List</h4>
+                <p class="float-end">
+                    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+                </p>
+            </div>
+            <div class="card-body">
+
+
+                <table class="table table-bordered table-striped" id="courseTable">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.First().CourseID)</th>
+                            <th>@Html.DisplayNameFor(model => model.First().CourseTitle)</th>
+                            <th>@Html.DisplayNameFor(model => model.First().CourseCredits)</th>
+                            <th>Department</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.CourseID)</td>
+                                <td>@Html.DisplayFor(modelItem => item.CourseTitle)</td>
+                                <td>@Html.DisplayFor(modelItem => item.CourseCredits)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Department.DepartmentName)</td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.CourseID }, new { @class = "btn btn-primary" })
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.CourseID }, new { @class = "btn btn-danger" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

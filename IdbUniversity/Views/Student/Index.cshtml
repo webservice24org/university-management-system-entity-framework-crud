@@ -1,0 +1,100 @@
+﻿@model PagedList.IPagedList<IdbUniversity.Models.Student>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string demoImagePath = Url.Content("~/images/demo_image.png"); 
+}
+
+<div class="row mt-3">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                @using (Html.BeginForm("Index", "Student", FormMethod.Get))
+                {
+                    <p class="float-start">
+                        Search Student: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+                        <input type="submit" value="Search" />
+                    </p>
+                }
+                <p class="float-end">
+                    @Html.ActionLink("Add New Student", "Create", null, new { @class = "btn btn-success" })
+                </p>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-striped studentTable" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th class="table-col-medium">
+                                @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.NameSortParam, currentFilter = ViewBag.CurrentFilter })
+                            </th>
+                            <th class="table-col-medium">
+                                @Html.ActionLink("First Name", "Index", new { sortOrder = ViewBag.FirstNameSortParam, currentFilter = ViewBag.CurrentFilter })
+                            </th>
+                            <th class="table-col-large">
+                                @Html.ActionLink("Email", "Index", new { sortOrder = ViewBag.EmailSortParam, currentFilter = ViewBag.CurrentFilter })
+                            </th>
+                            <th class="table-col-medium">
+                                @Html.ActionLink("Phone", "Index", new { sortOrder = ViewBag.PhoneSortParam, currentFilter = ViewBag.CurrentFilter })
+                            </th>
+                            <th class="table-col-medium">
+                                @Html.DisplayNameFor(model => model.First().Picture)
+                            </th>
+                            <th class="table-col-small">
+                                @Html.DisplayNameFor(model => model.First().IsActive)
+                            </th>
+                            <th class="table-col-small">
+                                @Html.ActionLink("Enrollment Date", "Index", new { sortOrder = ViewBag.DateSortParam, currentFilter = ViewBag.CurrentFilter })
+                            </th>
+                            <th class="table-col-xlarge">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="table-col-medium">
+                                    @Html.DisplayFor(modelItem => item.LastName)
+                                </td>
+                                <td class="table-col-medium">
+                                    @Html.DisplayFor(modelItem => item.FirstMidName)
+                                </td>
+                                <td class="table-col-large">
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td class="table-col-medium">
+                                    @Html.DisplayFor(modelItem => item.Phone)
+                                </td>
+                                <td class="table-col-medium">
+                                    <img src="@(string.IsNullOrEmpty(item.Picture) ? demoImagePath : Url.Content(item.Picture))" class="rounded img-thumbnail" style="max-width: 100px;" />
+                                </td>
+                                <td class="table-col-small">
+                                    @Html.DisplayFor(modelItem => item.IsActive)
+                                </td>
+                                <td class="table-col-small">
+                                    @Html.DisplayFor(modelItem => item.EnrollmentDate)
+                                </td>
+                                <td class="table-col-xlarge">
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.StudentId }, new { @class = "btn btn-primary" })
+                                    @Html.ActionLink("Details", "Details", new { id = item.StudentId }, new { @class = "btn btn-info" })
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.StudentId }, new { @class = "btn btn-danger" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="card-footer d-flex align-items-center">
+                <div class="mx-2">
+                    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+                </div>
+                <div>
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }), PagedListRenderOptions.Classic)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+﻿@model IdbUniversity.Models.ViewModel.StudentViewModel
+
+@{
+    ViewBag.Title = "Student Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string demoImagePath = Url.Content("~/images/demo_image.png");
+}
+
+<div class="row mt-3">
+    <div class="col-md-12 col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="text-center">Details Information of: 
+                    <span class="text-danger">@Html.DisplayFor(model => model.FirstMidName) @Html.DisplayFor(model => model.LastName)</span> 
+                    <span>ID: @Html.DisplayFor(model => model.StudentId)</span>
+                </h2>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-9">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.LastName)</th>
+                                    <th>@Html.DisplayNameFor(model => model.FirstMidName)</th>
+                                    <th>@Html.DisplayNameFor(model => model.Email)</th>
+                                    <th>@Html.DisplayNameFor(model => model.Phone)</th>
+                                    <th>@Html.DisplayNameFor(model => model.IsActive)</th>
+                                    <th>@Html.DisplayNameFor(model => model.EnrollmentDate)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>@Html.DisplayFor(model => model.LastName)</td>
+                                    <td>@Html.DisplayFor(model => model.FirstMidName)</td>
+                                    <td>@Html.DisplayFor(model => model.Email)</td>
+                                    <td>@Html.DisplayFor(model => model.Phone)</td>
+                                    <td>@Html.DisplayFor(model => model.IsActive)</td>
+                                    <td>@Html.DisplayFor(model => model.EnrollmentDate)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h4>Enrolled Courses</h4>
+                        <table class="table table-bordered table-striped text-center">
+                            <tr>
+                                <th>Course ID</th>
+                                <th>Course Name</th>
+                                <th>Credits</th>
+                            </tr>
+                            @foreach (var course in Model.EnrolledCourses)
+                            {
+                                <tr>
+                                    <td>@course.CourseID</td>
+                                    <td>@course.CourseTitle</td>
+                                    <td>@course.CourseCredits</td>
+                                </tr>
+                            }
+                        </table>
+
+                    </div>
+                    <div class="col-md-3">
+                        <div class="studentImage">
+                            <img src="@(string.IsNullOrEmpty(Model.Picture) ? demoImagePath : Url.Content(Model.Picture))" class="rounded img-thumbnail" />
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="card-footer">
+                <p>
+                    @Html.ActionLink("Back to List", "Index", null, new {@class="btn btn-info float-start"})
+                    @Html.ActionLink("Edit Data", "Edit", new { id = Model.StudentId }, new {@class="btn btn-primary float-end"}) 
+                </p>
+            </div>
+        </div>        
+
+    </div>
+</div>

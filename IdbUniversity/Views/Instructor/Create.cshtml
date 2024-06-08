@@ -1,0 +1,118 @@
+﻿@model IdbUniversity.Models.ViewModel.InstructorViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h2>Add New Instructor</h2>
+            </div>
+            <div class="card-body">
+
+                
+
+                @using (Html.BeginForm("Create", "Instructor", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                <div class="row">
+                    <div class="col-md-8">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="form-group mt-3">
+                            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label" })
+                            <div class="pt-2">
+                                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-3">
+                            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label" })
+                            <div class="pt-2">
+                                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-3">
+                            @Html.LabelFor(model => model.JoinDate, htmlAttributes: new { @class = "control-label" })
+                            <div class="pt-2">
+                                @Html.EditorFor(model => model.JoinDate, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.JoinDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-3">
+                            @Html.LabelFor(model => model.OfficeAssignment.Location, "Office Location", htmlAttributes: new { @class = "control-label" })
+                            <div class="pt-2">
+                                @Html.EditorFor(model => model.OfficeAssignment.Location, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.OfficeAssignment.Location, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <h3 class="mt-2 mb-2">Assign Courses</h3>
+                            <div class="row">
+                                @foreach (var course in Model.AllCourses)
+                                {
+                                    <div class="checkbox col-md-4">
+                                        <label>
+                                            <input type="checkbox" name="SelectedCourseIDs" value="@course.CourseID" />
+                                            @course.CourseTitle
+                                        </label>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="col-md-3 offset-1 form-group">
+                        <label class="control-label mb-2">Upload Picture</label>
+                        <input type="file" id="upImage" class="form-control" name="PicturePath" onchange="readUrl(this)" />
+                        @Html.ValidationMessageFor(model => model.PicturePath, "", new { @class = "text-danger" })
+
+
+                        <img src="~/images/demo_image.png" id="imageFile" class="img-thumbnail mt-2" />
+
+                    </div>
+                    <div class="form-group mt-3">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Save Now" class="btn btn-lg btn-success" />
+                        </div>
+                    </div>
+                </div>
+                }
+
+
+            </div>
+            <div class="card-footer">
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-lg btn-info" })
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script type="text/javascript">
+        function readUrl(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#imageFile')
+                        .attr('src', e.target.result)
+                        .width(150)
+                        .height(200);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+

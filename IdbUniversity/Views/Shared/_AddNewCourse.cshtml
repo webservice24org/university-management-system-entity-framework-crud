@@ -1,0 +1,9 @@
+﻿@model IdbUniversity.Models.Course
+<div class="form-group row mt-3">
+    <div class="col-md-10 col-sm-12">
+        @Html.DropDownListFor(d => d.CourseID, ViewBag.courses as SelectList, "---Select Course-----", htmlAttributes: new { @class = "form-control mb-2" })
+    </div>
+    <div class="col-md-2 col-sm-12">
+        <a href="#" id="btnDeleteCourse" class="btn btn-danger"> Delete</a>
+    </div>
+</div>

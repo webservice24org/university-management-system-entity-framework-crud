@@ -1,0 +1,134 @@
+﻿@model IdbUniversity.Models.ViewModel.InstructorViewModel
+
+
+
+@{
+    ViewBag.Title = "Instructors";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string demoImagePath = Url.Content("~/images/demo_image.png");
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="float-start">Instructor List</h2>
+                <p>
+                    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success float-end" })
+                </p>
+            </div>
+            <div class="card-body">
+
+
+
+                <table class="table table-bordered table-striped instructorTable">
+                    <thead>
+                        <tr>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.FirstName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.LastName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.JoinDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OfficeAssignment.Location)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.InstructorPicture)
+                            </th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model.Instructors)
+                        {
+                            string selectedRow = "";
+                            if (item.InstructorID == ViewBag.InstructorID)
+                            {
+                                selectedRow = "success";
+                            }
+                            <tr class="@selectedRow">
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FirstName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LastName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.JoinDate)
+                                </td>
+                                <td>
+                                    @if (item.OfficeAssignment != null)
+                                    {
+
+                                        @Html.DisplayFor(modelItem => item.OfficeAssignment.Location)
+                                    }
+                                </td>
+                                <td>
+                                    <img src="@(string.IsNullOrEmpty(item.InstructorPicture) ? demoImagePath : Url.Content(item.InstructorPicture))" class="rounded img-thumbnail" style="max-width: 100px;" />
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Select", "Index", new { id = item.InstructorID }, new { @class = "btn btn-info" })
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.InstructorID }, new { @class = "btn btn-primary" })
+                                    @Html.ActionLink("Details", "Details", new { id = item.InstructorID }, new { @class = "btn btn-warning" })
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.InstructorID }, new { @class = "btn btn-danger" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@if (Model.Courses != null)
+{
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="text-center">Course Taught By Selected Instructor</h3>
+                </div>
+                <div class="card-body">
+
+
+                    <table class="table table-bordered table-striped">
+                        <tr>
+                            <th>Instructor</th>
+                            <th>Course ID</th>
+                            <th>Course Title</th>
+                            <th>Department</th>
+                        </tr>
+                        @foreach (var item in Model.Courses)
+                        {
+                            string selectedRow = "";
+                            if (item.CourseID == ViewBag.CourseID)
+                            {
+                                selectedRow = "success";
+                            }
+
+                            <tr class="@selectedRow">
+                               
+                                <td>@item.Instructors.FirstOrDefault().FullName</td>
+                                
+                                <td>@item.CourseID</td>
+                                <td>@item.CourseTitle</td>
+                                <td>@item.Department.DepartmentName</td>
+                            </tr>
+                        }
+                    </table>
+
+                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+}

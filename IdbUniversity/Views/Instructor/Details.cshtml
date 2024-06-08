@@ -1,0 +1,86 @@
+﻿@model IdbUniversity.Models.ViewModel.InstructorViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string demoImagePath = Url.Content("~/images/demo_image.png");
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="text-center">Details of Instructor: @Model.FullName</h2>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.FirstName)</th>
+                                    <th>@Html.DisplayNameFor(model => model.LastName)</th>
+                                    <th>@Html.DisplayNameFor(model => model.JoinDate)</th>
+                                    <th>@Html.DisplayNameFor(model => model.OfficeAssignment.Location)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>@Html.DisplayFor(model => model.FirstName)</td>
+                                    <td>@Html.DisplayFor(model => model.LastName)</td>
+                                    <td>@Html.DisplayFor(model => model.JoinDate)</td>
+                                    <td>@Html.DisplayFor(model => model.OfficeAssignment.Location)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        @if (Model.Courses != null)
+                        {
+                            <div class="row mb-3 mt-3">
+                                
+                                <div class="col-md-12">
+                                   
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4 class="control-label text-center">Assigned Courses</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <table class="table table-bordered table-striped">
+                                                <tr>
+                                                    <th>Course ID</th>
+                                                    <th>Course Title</th>
+                                                    <th>Department</th>
+                                                </tr>
+                                                @foreach (var course in Model.Courses)
+                                                {
+                                                    <tr>
+                                                        <td>@course.CourseID</td>
+                                                        <td>@course.CourseTitle</td>
+                                                        <td>@course.Department.DepartmentName</td>
+                                                    </tr>
+                                                }
+                                            </table>
+                                        </div>
+                                    </div>         
+
+                                </div>
+                            </div>
+                        }
+                        
+                    </div>
+                    <div class="col-md-3 offset-md-1">
+                        <div class="form-group">
+                            <div class="editImg">
+                                <img src="@(string.IsNullOrEmpty(Model.InstructorPicture) ? demoImagePath : Url.Content(Model.InstructorPicture))" id="imageFile" class="img-thumbnail" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                @Html.ActionLink("Back to List", "Index", null, new {@class="btn btn-lg btn-primary"})
+                @Html.ActionLink("Edit Instructor", "Edit", new { id = Model.InstructorID }, new { @class = "btn btn-lg btn-success float-end" }) 
+            </div>
+        </div>
+    </div>
+</div>

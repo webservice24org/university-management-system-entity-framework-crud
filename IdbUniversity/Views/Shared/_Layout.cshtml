@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - ISDB University</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/dataTables.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+</head>
+<body class="siteBg" style="background-image: url('@Url.Content("~/images/sliders/8562818_25488.jpg")'); background-size: cover; background-repeat: no-repeat;">
+    <div class="container mb-2">
+        <div class="row">
+            <div class="col-md-4 siteLogo">
+                <a href="/">
+                    <img src="~/images/IsDB-BISEW-University.png" alt="IsDB University" />
+                </a>
+            </div>
+            <div class="col-md-8 mt-3">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"><span class="nav-link">@Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })</span></li>
+                        <li class="nav-item"><span class="nav-link">@Html.ActionLink("Courses", "Index", "Course", null, new { @class = "nav-link" })</span></li>
+                        <li class="nav-item"><span class="nav-link">@Html.ActionLink("Departments", "Index", "Departments", null, new { @class = "nav-link" })</span></li>
+                        <li class="nav-item"><span class="nav-link">@Html.ActionLink("Students", "Index", "Student", null, new { @class = "nav-link" })</span></li>
+                        <li class="nav-item"><span class="nav-link">@Html.ActionLink("Instructors", "Index", "Instructor", null, new { @class = "nav-link" })</span></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+
+        <div class="topFooter pt-3 pb-3 ps-2 bg-black text-light mt-5">
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>Address</h5> <hr />
+                    <address>
+                        IDB Bhaban (4th Floor)
+                        E/8-A, Rokeya Sharani, Sher-e-Bangla Nagar. Dhaka-1207, Bangladesh
+                        Phone: +880 2 9183006
+                        Email: idbb@isdb-bisew.org
+                        Fax: +880 2 9183001 - 2
+                    </address>
+                </div>
+                <div class="col-md-3">
+                    <h5>IsDB-BISEW Programme</h5> <hr />
+                    <ul class="footer-widget list-group m-0 m-sm-auto">
+                        <li>
+                            <a href="#" class="nav-link">IT Scholarship Programme</a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link">Vocational Training</a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link">Madrasah Programme</a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link">4-Year Diploma Programme</a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link">Orphanage Programme</a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link">Necessary Forms</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="col-md-3">
+                    <h5>Important Links</h5> <hr />
+                    <ul class="footer-widget list-group m-0 m-sm-auto">
+                        <li>
+                            <a href="#" class="nav-link" target="_blank">
+                                Project Information System for VTP
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link" target="_blank">Project Information System for ITP</a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link" target="_blank">CareerHub IsDB-BISEW</a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link" target="_blank">TSPs Monitoring System</a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link" target="_blank">IsDB-BISEW Tenant</a>
+                        </li>
+                        <li>
+                            <a href="/contact" class="nav-link">Contact us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Connect</h5> <hr />
+                    <p>Phone: +880 2 9183006</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-3 bg-body-secondary p-3 text-center">
+            <p>&copy; @DateTime.Now.Year - ISDB University, Developed by Mohiuddin, ID 1280860</p>
+        </footer>
+
+        <div aria-live="polite" aria-atomic="true">
+            <div style="position: fixed; top: 20px; right: 20px; z-index: 1050;">
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                        <div class="toast-header">
+                            <strong class="mr-auto">Success</strong>
+                            <button type="button" class="ml-auto mb-1 close" data-dismiss="toast" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="toast-body">
+                            @TempData["SuccessMessage"]
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+    </div>
+
+    <script src="~/Scripts/jquery-3.7.1.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/dataTables.min.js"></script>
+    <script src="~/Scripts/custom.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.toast').toast('show');
+
+            $('#courseTable').DataTable({
+                responsive: true,
+                autoWidth: false
+            });
+
+            $('.instructorTable').DataTable({
+                responsive: true,
+                autoWidth: false
+            });
+            $('.departmentTable').DataTable({
+                responsive: true,
+                autoWidth: false
+            });
+        });
+    </script>
+
+</body>
+</html>

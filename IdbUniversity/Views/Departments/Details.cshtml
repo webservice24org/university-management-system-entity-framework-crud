@@ -1,0 +1,42 @@
+﻿@model IdbUniversity.Models.Department
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="text-center">Details of <span class="text-success">@Html.DisplayFor(model => model.DepartmentName)</span> Department</h4>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.DepartmentName)</th>
+                            <th>@Html.DisplayNameFor(model => model.Budget)</th>
+                            <th>@Html.DisplayNameFor(model => model.StartDate)</th>
+                            <th>@Html.DisplayNameFor(model => model.Administrator.FullName)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> @Html.DisplayFor(model => model.DepartmentName)</td>
+                            <td> @Html.DisplayFor(model => model.Budget)</td>
+                            <td> @Html.DisplayFor(model => model.StartDate)</td>
+                            <td> @Html.DisplayFor(model => model.Administrator.FullName)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer">
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-lg btn-info float-start" })
+                @Html.ActionLink("Edit Department", "Edit", new { id = Model.DepartmentID }, new { @class = "btn btn-lg btn-primary float-end" }) 
+            </div>
+        </div>
+    </div>
+</div>
+
+

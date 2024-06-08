@@ -1,0 +1,87 @@
+﻿body {
+    padding-bottom: 20px;
+}
+ul{list-style:none}
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.siteLogo img {
+    width: 300px;
+    height: 84px;
+    margin-top: 10px;
+}
+.studentEditCard {
+    background: #fff2e0;
+}
+.studentTable tr td {
+    vertical-align: middle;
+}
+
+.studentTable a {
+    text-decoration: none;
+}
+
+
+.courseTab .tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+.courseTab .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+
+.courseTab .tab button:hover {
+    background-color: #ddd;
+}
+
+
+.courseTab .tab button.active {
+    background-color: #ccc;
+}
+
+.courseTab .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+.courseTab .tabcontent {
+    animation: fadeEffect 1s; 
+}
+
+
+@keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.table-col-small {
+    width: 5%; 
+}
+
+.table-col-medium {
+    width: 15%; 
+}
+
+.table-col-large {
+    width: 25%; 
+}
+
+.table-col-xlarge {
+    width: 30%; 
+}
