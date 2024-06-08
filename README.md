@@ -5,47 +5,41 @@
 <h3>Features</h3>
 <ul style="list-style:none;">
   <li><strong>Course Management:</strong> Create, update, delete, and view courses. Assign courses to instructors and manage course details efficiently.</li>
-  <li>Department Management: Manage departments, assign instructors as department heads, and link courses to departments.</li>
-  <li>Instructor Management: Add, update, delete, and view instructor profiles. Assign office locations and courses to instructors, and manage instructor-specific details.</li>
-  <li>Student Management: Enroll students, manage student profiles, and handle student-specific data including images.</li>
-  <li>Image Handling: Upload and manage images for instructors and students to enhance user profiles and other records.</li>
-  <li>Sorting and Filtering: Implement sorting and filtering functionalities across various tables for improved data navigation.</li>
-  <li>Validation and Error Handling: Comprehensive validation and error handling to ensure data integrity and a smooth user experience.</li>
+  <li><strong>Department Management:</strong> Manage departments, assign instructors as department heads, and link courses to departments.</li>
+  <li><strong>Instructor Management:</strong> Add, update, delete, and view instructor profiles. Assign office locations and courses to instructors, and manage instructor-specific details.</li>
+  <li><strong>Student Management:</strong> Enroll students, manage student profiles, and handle student-specific data including images.</li>
+  <li><strong>Image Handling:</strong> Upload and manage images for instructors and students to enhance user profiles and other records.</li>
+  <li><strong>Sorting and Filtering:</strong> Implement sorting and filtering functionalities across various tables for improved data navigation.</li>
+  <li><strong>Validation and Error Handling:</strong> Comprehensive validation and error handling to ensure data integrity and a smooth user experience.</li>
 </ul>
 
 <h2>Technologies Used</h2>
 <ul style="list-style:none;">
-  <li>ASP.NET MVC 5: For creating a scalable and maintainable web application.</li>
-  <li>Entity Framework 6: For data access and management using the Database First approach.</li>
-  <li>Bootstrap: For responsive and modern UI design.</li>
-  <li>jQuery and DataTables: For enhanced user interactions and data handling.</li>
-  <li>SQL Server: As the database solution to store and manage application data.</li>
+  <li><stromg>ASP.NET MVC 5:</stromg> For creating a scalable and maintainable web application.</li>
+  <li><strong>Entity Framework 6:</strong> For data access and management using the Database First approach.</li>
+  <li><strong>Bootstrap:</strong> For responsive and modern UI design.</li>
+  <li><strong>jQuery and DataTables:</strong> For enhanced user interactions and data handling.</li>
+  <li><strong>SQL Server:</strong> As the database solution to store and manage application data.</li>
 </ul>
 
 <h2>System Overview in Images</h2>
 <p>Below are some screenshots of the system:</p>
-<ul style="list-style:none;">
-  <li>
+
+ <h3>Home Page</h3>
     <img src="screenshots/homepage.png" alt="Course Management Screenshot" style="width:100%; max-width:600px;">
-    <p>Home Page</p>
-  </li>
-  <li>
+   <br />
+    <h3>Course Management</h3>
     <img src="screenshots/courses.png" alt="Course Management Screenshot" style="width:100%; max-width:600px;">
-    <p>Course Management</p>
-  </li>
-  <li>
+       <br />
+ <h3>Department Management</h3>
     <img src="screenshots/departments.png" alt="Department Management Screenshot" style="width:100%; max-width:600px;">
-    <p>Department Management</p>
-  </li>
-  <li>
+       <br />
+  <h3>Instructor Management</h3>
     <img src="screenshots/instructors.png" alt="Instructor Management Screenshot" style="width:100%; max-width:600px;">
-    <p>Instructor Management</p>
-  </li>
-  <li>
+   <br />
+ <h3>Student Management</h3>
     <img src="screenshots/students.png" alt="Student Management Screenshot" style="width:100%; max-width:600px;">
-    <p>Student Management</p>
-  </li>
-</ul>
+   
 
 <h2>Master-Detail CRUD Application</h2>
 <p>Using Entity Framework Code First for managing Courses, Departments, Instructors, and Students with image support.</p>
