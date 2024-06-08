@@ -1,6 +1,6 @@
 <h2>University Management System</h2>
 <h3>Overview</h3>
-<p>This University Management System is a robust and user-friendly web application developed using ASP.NET MVC 5 and Entity Framework 6, leveraging the Database First approach. The system provides a seamless interface for managing university-related data, including Courses, Departments, Instructors, and Students. It also incorporates image handling capabilities for user profiles and other relevant records. </p>
+<p>This University Management System is a robust and user-friendly web application developed using ASP.NET MVC 5 and Entity Framework 6, leveraging the Database First approach. The system provides a seamless interface for managing university-related data, including Courses, Departments, Instructors, and Students. It also incorporates image handling capabilities for user profiles and other relevant records.</p>
 
 <h3>Features</h3>
 <ul style="list-style:none;">
@@ -22,12 +22,30 @@
   <li>SQL Server: As the database solution to store and manage application data.</li>
 </ul>
 
-<h2>System overview in Image</h2>
+<h2>System Overview in Images</h2>
+<p>Below are some screenshots of the system:</p>
+<ul style="list-style:none;">
+  <li>
+    <img src="screenshots/course_management.png" alt="Course Management Screenshot" style="width:100%; max-width:600px;">
+    <p>Course Management</p>
+  </li>
+  <li>
+    <img src="screenshots/department_management.png" alt="Department Management Screenshot" style="width:100%; max-width:600px;">
+    <p>Department Management</p>
+  </li>
+  <li>
+    <img src="screenshots/instructor_management.png" alt="Instructor Management Screenshot" style="width:100%; max-width:600px;">
+    <p>Instructor Management</p>
+  </li>
+  <li>
+    <img src="screenshots/student_management.png" alt="Student Management Screenshot" style="width:100%; max-width:600px;">
+    <p>Student Management</p>
+  </li>
+</ul>
 
-
-<h2>Master-Detail CRUD application using Entity Framework Code First for managing Courses, Departments, Instructors, and Students with image support.</h2>
-<h3>Created Master-Detail CRUD application using Code First Approach</h3>
-<h3>How to use this application</h3>
+<h2>Master-Detail CRUD Application</h2>
+<p>Using Entity Framework Code First for managing Courses, Departments, Instructors, and Students with image support.</p>
+<h3>How to Use This Application</h3>
 
 <ul>
   <li>
@@ -78,12 +96,3 @@ Update-Database</code></pre>
 </ul>
 
 <p>This setup and features ensure a smooth and user-friendly experience for managing university-related data.</p>
-
-
-
-
-
-
-
-
-
